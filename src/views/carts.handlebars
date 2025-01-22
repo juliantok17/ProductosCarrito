@@ -1,0 +1,16 @@
+<h1 class="tituloIndex">Productos del Carrito con ID: {{idCarrito}}</h1>
+<div class="product-container">
+
+    {{#each productos}}
+
+    <div class="product-card">
+        <h2 class="product-title">Producto: {{this.title}}</h2>
+        <p class="product-description">Descripción: {{this.description}}</p>
+        <p class="product-price">Precio: ${{this.price}}</p>
+        <p>Cantidad de Productos: {{this.quantity}}</p>
+    </div>
+
+    {{/each}}
+
+</div>
+<script src="/js/carts.js"></script>

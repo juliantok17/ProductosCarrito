@@ -1,0 +1,34 @@
+<h1 class="tituloIndex">Lista de Productos</h1>
+<h2>Bienvenido, {{user.usuario}}, <a href="http://localhost:3000/carts/{{user.cart}}">Ver Carrito</a></h2>
+<div class="product-container">
+   
+{{#each productos}}
+    
+        <div class="product-card">
+            <h2 class="product-title">Producto: {{this.title}}</h2>
+            <p class="product-description">Descripción: {{this.description}}</p>
+            <p class="product-price">Precio: ${{this.price}}</p>
+            <button class="product-button-real" id="addToCartBtn" cart-id="{{../user.cart}}" product-id="{{this._id}}">Agregar al Carrito</button>
+            
+        </div>
+        
+{{/each}}
+
+</div>
+
+<br><br>
+<p> Pagina {{currentPage}} de {{totalPages}}  </p>
+
+{{#if hasPrevPage}}
+    <a href="/products?page={{prevPage}}"> Anterior </a>
+{{/if}}
+
+
+{{#if hasNextPage}}
+    <a href="/products?page={{nextPage}}"> Siguiente </a>
+{{/if}}
+
+<form action="/api/sessions/logout" method="POST">
+    <button type="submit"> Logout </button>
+</form>
+<script src="js/products.js"></script>
